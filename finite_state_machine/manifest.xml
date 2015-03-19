@@ -1,0 +1,16 @@
+<package>
+  <description brief="finite_state_machine">
+
+     finite_state_machine
+
+  </description>
+  <author>Peter</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/finite_state_machine</url>
+  <depend package="rosmsg"/>
+  <depend package="roscpp"/>
+
+</package>
+
+

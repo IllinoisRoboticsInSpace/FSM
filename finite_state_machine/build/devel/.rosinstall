@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/peter/hydro_ws/sandbox/finite_state_machine/build/devel/setup.sh
