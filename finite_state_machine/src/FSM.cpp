@@ -3,7 +3,7 @@
 #include <geometry_msgs/PoseStamped.h>
 
 ros::NodeHandle nh;
-enum state_t {start, localize, move_mine, move_bin, mining, dumping, manual};
+enum state_t {wait_start, find_location, move_to_mine, mine, move_to_bin, turn_to_bin, dump, manual};
 
 
 
@@ -21,13 +21,13 @@ class State
 class StartState : public State
 {
   public:
-    StartState() : State(start) { };
+    StartState() : State(wait_start) { };
     State * change_state()
     {
       if (checkFailed())
         reinterpret_cast<ManualState *>(this)->ManualState::ManualState();
       else
-        reinterpret_cast<MoveGoalState *>(this)->MoveGoalState::MoveGoalState(move_mine);
+        reinterpret_cast<MoveGoalState *>(this)->MoveGoalState::MoveGoalState(move_to_mine);
       return this;
     };
     void perform_task();
@@ -57,9 +57,9 @@ class MoveGoalState : public State
   public:
     MoveGoalState(state_t target) : State(target)
     {
-      if (target == move_mine)
+      if (target == move_mine) //???
         goal = MINE_LOC;
-      else if (target == move_bin)
+      else if (target == move_bin) //???
         goal = BIN_LOC;
       else
         goal = geometry_msgs::Pose();
