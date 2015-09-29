@@ -24,10 +24,13 @@ class SubscribeAndPublish
 {
 public:
   SubscribeAndPublish() : 
-    miningXpoints {2.92,2.63,2.4,1.89,1.38,1.15,0.86,0.7}, 
+    miningXpoints {2.92,2.63,2.4,1.89,1.38,1.15,0.86,0.7},  
     miningYpoints {5.9,6.25,6.45,6.6,6.55,6.25,5.9,5.2}, 
     miningYawpoints {120.*PI/180.,144.*PI/180.,160.*PI/180.,PI,
                      200.*PI/180.,216.*PI/180.,240.*PI/180.,-PI/2.}
+                     /*The x and y appear to be coordinate pairs for places on the field that are good 
+                     potential cantidates for mining. The yaw points are the angle that the robot should be facing
+                     when mining them. They are coded in radians*/
   {
     
     //Topic you want to publish
